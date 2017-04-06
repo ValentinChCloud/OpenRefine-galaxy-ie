@@ -1,4 +1,3 @@
-
 FROM ubuntu:16.10
 # These environment variables are passed from Galaxy to the container
 # and help you enable connectivity to Galaxy from within the container.
@@ -6,7 +5,6 @@ FROM ubuntu:16.10
 
 
 USER root
-
 ENV DEBIAN_FRONTEND=noninteractive \
     API_KEY=none \
     DEBUG=false \
@@ -16,11 +14,23 @@ ENV DEBIAN_FRONTEND=noninteractive \
     HISTORY_ID=none \
     REMOTE_HOST=none
 	
-	
+RUN apt-get update &&\
+    apt-get install -y wget
+
+
+RUN apt-get install --no-install-recommends -y \
+    wget procps nginx python python-pip net-tools nginx	
+
+RUN apt-get install -y openjdk-8-jdk
+
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+
+ENV PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:${PATH}"
+
+
 # download and "mount" OpenRefine
 RUN wget -O - --no-check-certificate https://github.com/OpenRefine/OpenRefine/archive/master.tar.gz | tar -xz
-RUN mv OpenRefine-master OpenRefine; cd ./OpenRefine ; ant clean build;
-
+RUN mv OpenRefine-master OpenRefine; cd ./OpenRefine ;
 RUN apt-get install unzip;
 
 # Our very important scripts. Make sure you've run `chmod +x startup.sh
