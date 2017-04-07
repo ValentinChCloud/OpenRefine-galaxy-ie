@@ -1,0 +1,204 @@
+[
+    {
+        "Id": "fe8bfd827198bc56d197f4758cb4842ee7a184ceeff0245c8a7dccdcad547413",
+        "Created": "2017-04-07T13:56:48.39996505Z",
+        "Path": "/bin/sh",
+        "Args": [
+            "-c",
+            "/startup.sh"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 8067,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2017-04-07T13:56:49.656678645Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:73ac8ad3a363bef511d25bd2dd5ca9b083751aa77b5795af3c3c4646572a2f11",
+        "ResolvConfPath": "/var/lib/docker/containers/fe8bfd827198bc56d197f4758cb4842ee7a184ceeff0245c8a7dccdcad547413/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/fe8bfd827198bc56d197f4758cb4842ee7a184ceeff0245c8a7dccdcad547413/hostname",
+        "HostsPath": "/var/lib/docker/containers/fe8bfd827198bc56d197f4758cb4842ee7a184ceeff0245c8a7dccdcad547413/hosts",
+        "LogPath": "/var/lib/docker/containers/fe8bfd827198bc56d197f4758cb4842ee7a184ceeff0245c8a7dccdcad547413/fe8bfd827198bc56d197f4758cb4842ee7a184ceeff0245c8a7dccdcad547413-json.log",
+        "Name": "/pedantic_mayer",
+        "RestartCount": 0,
+        "Driver": "aufs",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/mnhn65mo/galaxy/database/tmp/tmp0hGPSc:/import/"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": true,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": -1,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0
+        },
+        "GraphDriver": {
+            "Name": "aufs",
+            "Data": null
+        },
+        "Mounts": [
+            {
+                "Source": "/home/mnhn65mo/galaxy/database/tmp/tmp0hGPSc",
+                "Destination": "/import",
+                "Mode": "",
+                "RW": true,
+                "Propagation": "rprivate"
+            }
+        ],
+        "Config": {
+            "Hostname": "fe8bfd827198",
+            "Domainname": "",
+            "User": "root",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "80/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "DEBUG=false",
+                "GALAXY_URL=http://127.0.0.1:8080/",
+                "CORS_ORIGIN=http://127.0.0.1:8080",
+                "GALAXY_WEB_PORT=8080",
+                "HISTORY_ID=ebfb8f50c6abde6d",
+                "DATASET_HID=1",
+                "GALAXY_PASTER_PORT=8080",
+                "PROXY_PREFIX=",
+                "API_KEY=4711a6f9f0ded8e2116f235abaa3ef58",
+                "REMOTE_HOST=127.0.0.1",
+                "USER_EMAIL=chavaldranis@gmail.com",
+                "PATH=/usr/lib/jvm/java-8-openjdk-amd64/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "DEBIAN_FRONTEND=noninteractive",
+                "JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "/startup.sh"
+            ],
+            "Image": "openrefine",
+            "Volumes": {
+                "/import": {}
+            },
+            "WorkingDir": "/import",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "97a61f0098f276ed72a3bd056c48a4561c4c9e9f2523840d14f2b941f14de44d",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "80/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "32773"
+                    }
+                ]
+            },
+            "SandboxKey": "/var/run/docker/netns/97a61f0098f2",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "26d18d8b7d576965cd25462ef3153025d8959d5741a312eb9017e622649ce80c",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.3",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:03",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "64b09ab351f5209aae8229543594b917b202331a77f1466396d08bea9ee8e80f",
+                    "EndpointID": "26d18d8b7d576965cd25462ef3153025d8959d5741a312eb9017e622649ce80c",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.3",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:03"
+                }
+            }
+        }
+    }
+]
