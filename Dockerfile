@@ -44,11 +44,11 @@ ADD ./monitor_traffic.sh /monitor_traffic.sh
 RUN mkdir /import
 
 # Nginx configuration
-#COPY ./proxy.conf /proxy.conf
+COPY ./proxy.conf /proxy.conf
 
 VOLUME ["/import"]
 WORKDIR /import/
 
 # EXTREMELY IMPORTANT! You must expose a SINGLE port on your container.
-#EXPOSE 80
+EXPOSE 80
 CMD /startup.sh

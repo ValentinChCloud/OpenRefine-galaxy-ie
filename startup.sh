@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#sed -i "s|PROXY_PREFIX|${PROXY_PREFIX}|" /proxy.conf;
+sed -i "s|PROXY_PREFIX|${PROXY_PREFIX}|" /proxy.conf;
 cp /proxy.conf /etc/nginx/sites-enabled/default;
 
 # Here you would normally start whatever service you want to start. In our
