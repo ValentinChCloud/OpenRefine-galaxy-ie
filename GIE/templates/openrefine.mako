@@ -19,7 +19,7 @@ ie_request.launch(
 
 # Only once the container is launched can we template our URLs. The ie_request
 # doesn't have all of the information needed until the container is running.
-url = ie_request.url_template('${PROXY_URL}/helloworld/')
+url = ie_request.url_template('${PROXY_URL}/openrefine/')
 %>
 <html>
 <head>
@@ -30,7 +30,7 @@ ${ ie.load_default_js() }
 ${ ie.default_javascript_variables() }
 var url = '${ url }';
 ${ ie.plugin_require_config() }
-requirejs(['interactive_environments', 'plugin/helloworld'], function(){
+requirejs(['interactive_environments', 'plugin/openrefine'], function(){
     load_notebook(url);
 });
 </script>

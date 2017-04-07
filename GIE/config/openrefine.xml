@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE interactive_environment SYSTEM "../../interactive_environments.dtd">
-<interactive_environment name="HelloWorld">
+<interactive_environment name="openrefine">
     <data_sources>
         <data_source>
             <model_class>HistoryDatasetAssociation</model_class>
@@ -13,5 +13,5 @@
     <params>
         <param type="dataset" var_name_in_template="hda" required="true">dataset_id</param>
     </params>
-    <entry_point entry_point_type="mako">helloworld.mako</entry_point>
+    <entry_point entry_point_type="mako">openrefine.mako</entry_point>
 </interactive_environment>
