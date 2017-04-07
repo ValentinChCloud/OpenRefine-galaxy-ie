@@ -19,31 +19,19 @@ ie_request.launch(
 
 # Only once the container is launched can we template our URLs. The ie_request
 # doesn't have all of the information needed until the container is running.
-url = ie_request.url_template('${PROXY_URL}/openrefine/')
+url = ie_request.url_template('${PROXY_URL}/helloworld/')
 %>
 <html>
 <head>
-<!-- Loads some necessary javascript libraries. Specifically jquery,
-     toastr, and requirejs -->
 ${ ie.load_default_js() }
 </head>
 <body>
-
 <script type="text/javascript">
-// see $GALAXY_ROOT/config/plugins/interactive_environments/common/templates/ie.mako to learn what this does
 ${ ie.default_javascript_variables() }
-var notebook_login_url = 'unused';
-var notebook_access_url = '${ notebook_access_url }';
-
-// Load code with require.js
+var url = '${ url }';
 ${ ie.plugin_require_config() }
-
-// Load notebook
-// This will load code from static/openrefine.js, often used to handle
-// things like Login. The load_notebook function will eventually append
-// an IFrame to the <div id="main" /> below.
-requirejs(['interactive_environments', 'plugin/openrefine'], function(){
-    load_notebook(notebook_access_url);
+requirejs(['interactive_environments', 'plugin/helloworld'], function(){
+    load_notebook(url);
 });
 </script>
 <div id="main" width="100%" height="100%">

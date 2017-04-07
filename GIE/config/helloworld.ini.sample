@@ -3,10 +3,10 @@
 
 [docker]
 # Command to execute docker. For example `sudo docker` or `docker-lxc`.
-#command = docker {docker_args}
+command = docker {docker_args}
 
 # The docker image name that should be started.
-image = openrefine
+image = hello-ie
 
 # Additional arguments that are passed to the `docker run` command.
 #command_inject = --sig-proxy=true -e DEBUG=false
@@ -19,10 +19,3 @@ image = openrefine
 # The Docker hostname. It can be useful to run the Docker daemon on a different
 # host than Galaxy.
 #docker_hostname = localhost
-
-
-
-# If your Docker container exposes more then one port, Galaxy needs to know to
-# which ports it needs to connect. With this option you can specify the port number
-# inside your container to which Galaxy should connect the UI.
-#docker_connect_port = 8000
