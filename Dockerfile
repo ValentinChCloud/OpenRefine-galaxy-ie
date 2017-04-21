@@ -24,6 +24,17 @@ RUN apt-get install -y openjdk-8-jdk
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 ENV PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:${PATH}"
 
+
+
+RUN apt-get install -y python-pip
+Run pip install --upgrade pip
+RUN pip install -U setuptools
+RUn pip install bioblend galaxy-ie-helpers
+
+#Vim to modify ass porky
+RUN apt-get install -y vim
+
+
 #PERSONAL NOTE: You have have to install ullib before openrefine to avoid proxy port problem.
 #Get urllib
 RUN wget -O - --no-check-certificate https://github.com/seisen/urllib2_file/archive/master.tar.gz | tar -xz
@@ -40,6 +51,7 @@ RUN apt-get install unzip;
 # monitor_traffic.sh` outside of the container!
 ADD ./startup.sh /startup.sh
 ADD ./monitor_traffic.sh /monitor_traffic.sh
+ADD ./openrefine_import.sh /openrefine_traffic.sh
 
 # /import will be the universal mount-point for Jupyter
 # The Galaxy instance can copy in data that needs to be present to the
@@ -50,13 +62,6 @@ RUN mkdir /import
 RUN wget -O - --no-check-certificate https://github.com/ValentinChCloud/refine-python/archive/master.tar.gz | tar -xz
 RUN mv refine-python-master refine-python
 
-#RUN python setup.py test ; 
-#RUN python setup.py build ;
-#RUN python setup.py install;
-
-
-
-
 
 # Nginx configuration
 COPY ./proxy.conf /proxy.conf
@@ -65,12 +70,7 @@ VOLUME ["/import"]
 WORKDIR /import/
 
 
-#Test
-RUN apt-get install -y python-pip
-Run pip install --upgrade pip
-#Test 2
-RUN pip install -U setuptools
-RUn pip install bioblend galaxy-ie-helpers
+
 
 
 
