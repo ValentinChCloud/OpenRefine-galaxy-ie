@@ -20,12 +20,15 @@ RUN apt-get update &&\
 
 RUN apt-get install --no-install-recommends -y \
     wget procps nginx python python-pip net-tools nginx	
-
 RUN apt-get install -y openjdk-8-jdk
-
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
-
 ENV PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:${PATH}"
+
+#PERSONAL NOTE: You have have to install ullib before openrefine to avoid proxy port problem.
+#Get urllib
+RUN wget -O - --no-check-certificate https://github.com/seisen/urllib2_file/archive/master.tar.gz | tar -xz
+RUN mv urllib2_file-master urllib2_file; cd ./urllib2_file ; python setup.py test 
+RUN cd ./urllib2_file ; python setup.py build ; python setup.py install ;
 
 
 # download and "mount" OpenRefine
@@ -43,11 +46,34 @@ ADD ./monitor_traffic.sh /monitor_traffic.sh
 # container
 RUN mkdir /import
 
+#Get python api openrefine
+RUN wget -O - --no-check-certificate https://github.com/ValentinChCloud/refine-python/archive/master.tar.gz | tar -xz
+RUN mv refine-python-master refine-python
+
+#RUN python setup.py test ; 
+#RUN python setup.py build ;
+#RUN python setup.py install;
+
+
+
+
+
 # Nginx configuration
 COPY ./proxy.conf /proxy.conf
 
 VOLUME ["/import"]
 WORKDIR /import/
+
+
+#Test
+RUN apt-get install -y python-pip
+Run pip install --upgrade pip
+#Test 2
+RUN pip install -U setuptools
+RUn pip install bioblend galaxy-ie-helpers
+
+
+
 
 # EXTREMELY IMPORTANT! You must expose a SINGLE port on your container.
 EXPOSE 80

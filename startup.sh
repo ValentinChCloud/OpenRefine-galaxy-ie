@@ -10,6 +10,8 @@ cp /proxy.conf /etc/nginx/sites-enabled/default;
 #./refine -i 0.0.0.0
 exec ../OpenRefine/refine -d /mnt/refine &
 
+#load dataset into openrefine
+/openrefine_import.sh &
 
 # Launch traffic monitor which will automatically kill the container if traffic
 # stops
