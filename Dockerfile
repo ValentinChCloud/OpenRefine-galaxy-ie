@@ -51,7 +51,10 @@ RUN apt-get install unzip;
 # monitor_traffic.sh` outside of the container!
 ADD ./startup.sh /startup.sh
 ADD ./monitor_traffic.sh /monitor_traffic.sh
-ADD ./openrefine_import.sh /openrefine_traffic.sh
+#Import and export
+ADD ./openrefine_import.sh /openrefine_import.sh
+#Test
+
 
 # /import will be the universal mount-point for Jupyter
 # The Galaxy instance can copy in data that needs to be present to the
@@ -61,6 +64,19 @@ RUN mkdir /import
 #Get python api openrefine
 RUN wget -O - --no-check-certificate https://github.com/ValentinChCloud/refine-python/archive/master.tar.gz | tar -xz
 RUN mv refine-python-master refine-python
+
+
+
+
+#TEST
+RUN apt-get install -y curl
+ADD ./openrefine_create_project_API.py /refine-python/openrefine_create_project_API.py
+
+
+
+
+
+
 
 
 # Nginx configuration

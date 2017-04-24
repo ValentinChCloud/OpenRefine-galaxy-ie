@@ -12,7 +12,8 @@ exec ../OpenRefine/refine -d /mnt/refine &
 
 #load dataset into openrefine
 /openrefine_import.sh &
-
+# Createnew project with the dataset
+python /refine-python/openrefine_create_project_API.py "/import/$DATASET_HID"
 # Launch traffic monitor which will automatically kill the container if traffic
 # stops
 /monitor_traffic.sh &
