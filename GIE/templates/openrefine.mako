@@ -6,15 +6,22 @@ ie_request.load_deploy_config()
 # Define a volume that will be mounted into the container.
 # This is a useful way to provide access to large files in the container,
 # if the user knows ahead of time that they will need it.
-user_file = ie_request.volume(
-    hda.file_name, '/import/file.dat', how='ro')
+#user_file = ie_request.volume(
+#    hda.file_name, '/import/file.dat', how='ro')
 
 # Launch the IE. This builds and runs the docker command in the background.
+#ie_request.launch(
+#    volumes=[user_file],
+#    env_override={
+#        'custom': '42'
+#    }
+#)
+
+#Launch the IE . This builds and runs the docker command in the backgroud
 ie_request.launch(
-    volumes=[user_file],
-    env_override={
-        'custom': '42'
-    }
+	env_override={
+		'dataset_hid': hda.hid
+	}
 )
 
 # Only once the container is launched can we template our URLs. The ie_request
