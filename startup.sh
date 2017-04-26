@@ -12,8 +12,25 @@ exec ../OpenRefine/refine -d /mnt/refine &
 
 #load dataset into openrefine
 /openrefine_import.sh &
+
+while [ ! -f "/import/$DATASET_HID" ]
+do
+	echo "FILE $DATASET_HID not found "  >> erro.log
+	date >> erro.log
+	sleep 2
+done
+
+STATUS=$(curl --include 'http://127.0.0.1:3333' 2>&1)
+while [[ ${STATUS} =~ "refused" ]]
+do
+  echo "waiting for openrefine: $STATUS \n"
+  STATUS=$(curl --include 'http://127.0.0.1:3333' 2>&1)
+  sleep 2
+done
+
+
 # Createnew project with the dataset
-python /refine-python/openrefine_create_project_API.py "/import/$DATASET_HID"
+python /refine-python/openrefine_create_project_API.py /import/$DATASET_HID &
 # Launch traffic monitor which will automatically kill the container if traffic
 # stops
 /monitor_traffic.sh &
