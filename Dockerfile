@@ -46,6 +46,7 @@ RUN cd ./urllib2_file ; python setup.py build ; python setup.py install ;
 RUN wget -O - --no-check-certificate https://github.com/OpenRefine/OpenRefine/archive/master.tar.gz | tar -xz
 RUN mv OpenRefine-master OpenRefine; cd ./OpenRefine ;
 RUN apt-get install unzip;
+RUN /OpenRefine/refine build
 
 # Our very important scripts. Make sure you've run `chmod +x startup.sh
 # monitor_traffic.sh` outside of the container!
