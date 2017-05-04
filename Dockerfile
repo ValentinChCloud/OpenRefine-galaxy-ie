@@ -37,13 +37,13 @@ RUN apt-get install -y vim
 
 #PERSONAL NOTE: You have have to install ullib before openrefine to avoid proxy port problem.
 #Get urllib
-RUN wget -O - --no-check-certificate https://github.com/seisen/urllib2_file/archive/master.tar.gz | tar -xz
+RUN wget -O - --no-check-certificate https://github.com/ValentinChCloud/urllib2_file/archive/master.tar.gz | tar -xz
 RUN mv urllib2_file-master urllib2_file; cd ./urllib2_file ; python setup.py test 
 RUN cd ./urllib2_file ; python setup.py build ; python setup.py install ;
 
 
 # download and "mount" OpenRefine
-RUN wget -O - --no-check-certificate https://github.com/OpenRefine/OpenRefine/archive/master.tar.gz | tar -xz
+RUN wget -O - --no-check-certificate https://github.com/ValentinChCloud/OpenRefine/archive/master.tar.gz | tar -xz
 RUN mv OpenRefine-master OpenRefine; cd ./OpenRefine ;
 RUN apt-get install unzip;
 RUN /OpenRefine/refine build
@@ -73,8 +73,8 @@ RUN mv refine-python-master refine-python
 RUN apt-get install -y curl
 ADD ./openrefine_create_project_API.py /refine-python/openrefine_create_project_API.py
 
-
-
+#Test export
+ADD ./openrefine_export_project.py /refine-python/openrefine_export_project.py
 
 
 

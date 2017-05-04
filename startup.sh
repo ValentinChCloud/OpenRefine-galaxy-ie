@@ -24,6 +24,9 @@ done
 
 # Createnew project with the dataset
 python /refine-python/openrefine_create_project_API.py /import/$DATASET_HID &
+
+#Test export in datasheet galaxy
+python /refine-python/openrefine_export_project.py &
 # Launch traffic monitor which will automatically kill the container if traffic
 # stops
 /monitor_traffic.sh &
