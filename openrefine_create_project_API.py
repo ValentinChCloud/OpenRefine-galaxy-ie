@@ -7,6 +7,8 @@ import refine
 
 r = refine.Refine()
 p = r.new_project(sys.argv[1])
+cwd = os.getcwd()
+
 	try:
 		os.mkdir(cwd+'/temp_dossier')
 	except OSError:
