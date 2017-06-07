@@ -17,7 +17,7 @@ exec ../OpenRefine/refine -d /mnt/refine &
 STATUS=$(curl --include 'http://127.0.0.1:3333' 2>&1)
 while [[ ${STATUS} =~ "refused" ]]
 do
-  echo "waiting for openrefine: $STATUS \n"
+  echo "Waiting for openrefine: $STATUS \n"
   STATUS=$(curl --include 'http://127.0.0.1:3333' 2>&1)
   sleep 2
 done
@@ -25,8 +25,9 @@ done
 # Createnew project with the dataset
 python /refine-python/openrefine_create_project_API.py /import/$DATASET_HID &
 
-#Test export in datasheet galaxy
+#Export datasheet in galaxy
 python /refine-python/openrefine_export_project.py &
+
 # Launch traffic monitor which will automatically kill the container if traffic
 # stops
 /monitor_traffic.sh &
