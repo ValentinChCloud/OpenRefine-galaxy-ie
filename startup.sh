@@ -13,6 +13,11 @@ exec ../OpenRefine/refine -d /mnt/refine &
 #load dataset into openrefine
 /openrefine_import.sh &
 
+until [[ -f "/import/$DATASET_HID" ]]
+do
+	echo "Importing data from galaxy history"
+	sleep 2
+done
 #Check if openrefine is up to work
 STATUS=$(curl --include 'http://127.0.0.1:3333' 2>&1)
 while [[ ${STATUS} =~ "refused" ]]
