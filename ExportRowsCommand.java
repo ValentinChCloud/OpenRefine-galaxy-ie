@@ -59,7 +59,6 @@ int exportrow_count = 0;
 
     @SuppressWarnings("unchecked")
     static public Properties getRequestParameters(HttpServletRequest request) {
-	System.out.println("Jepasse dans properties");
 	int exportrow_count = 1;
 
         Properties options = new Properties();
@@ -86,7 +85,7 @@ int exitstatus;
 	System.out.println("Saving a file");
 	System.out.println("Calling python script");
 	//Runtime.getRuntime().exec("python /home/mnhn65mo/OpenRefine/refine-python/openrefine_export.py");
-	Process p = Runtime.getRuntime().exec("python /home/mnhn65mo/OpenRefine/refine-python/openrefine_export.py");
+	Process p = Runtime.getRuntime().exec("python /OpenRefine/refine-python/openrefine_export.py");
 	p.waitFor();
 	exitstatus = p.exitValue();
 	System.out.println(p.exitValue());
