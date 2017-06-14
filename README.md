@@ -2,14 +2,18 @@
 Galaxy Interactive Environment for theOpenRefine spreadsheet application
 
 To deploy Openrefine as IE in galaxy :
-
+```
+echo "#Galaxy stuff">>~/.bashrc
+echo 'export GALAXY_ROOT="$HOME/galaxy"'>>~/.bashrc
+source ~/.bashrc
+```
 #Add openrefine as interactive environnement
 ```
 #############################################
 
 mkdir $HOME/openrefine-install && cd /$HOME/openrefine-install && git clone https://github.com/ValentinChCloud/OpenRefine-galaxy-ie 
-mkdir $HOME/galaxy/config/plugins/interactive_environments/openrefine
-path_galaxy_openrefine=$(echo $HOME/galaxy/config/plugins/interactive_environments/openrefine)
+mkdir $GALAXY_ROOT/config/plugins/interactive_environments/openrefine
+path_galaxy_openrefine=$(echo $GALAXY_ROOT/config/plugins/interactive_environments/openrefine)
 path_install_openrefine=$(echo $HOME/openrefine-install/OpenRefine-galaxy-ie)
 mv $path_install_openrefine/GIE/config $path_galaxy_openrefine && \
 	mv $path_install_openrefine/GIE/static $path_galaxy_openrefine && \
