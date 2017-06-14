@@ -15,8 +15,8 @@ exec ../OpenRefine/refine -d /mnt/refine &
 
 until [[ -f "/import/$DATASET_HID" ]]
 do
-	echo "Importing data from galaxy history"
-	sleep 2
+	echo "Importing data from galaxy history "
+	sleep 4
 done
 #Check if openrefine is up to work
 STATUS=$(curl --include 'http://127.0.0.1:3333' 2>&1)

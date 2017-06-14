@@ -2,9 +2,8 @@
 import sys
 import os
 import pickle
-sys.path.append("refine.py")
 import refine
-
+sys.path.append("refine.py")
 r = refine.Refine()
 p = r.new_project(sys.argv[1])
 cwd = os.getcwd()
