@@ -14,8 +14,8 @@ cp /proxy.conf /etc/nginx/sites-enabled/default;
 
 until [[ -f "/import/$DATASET_HID" ]]
 do
-	echo "Importing data from galaxy history"
-	sleep 2
+	echo "Importing data from galaxy history "
+	sleep 4
 done
 
 exec ../OpenRefine/refine -d /mnt/refine &
