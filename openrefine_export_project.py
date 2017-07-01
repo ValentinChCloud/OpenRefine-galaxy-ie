@@ -31,10 +31,12 @@ else:
 		with open (cwd+'/temp_dossier/project_openrefine','rb') as fichier :
 			mon_depickler = pickle.Unpickler(fichier)
 			score_recupere = mon_depickler.load()
+			localefile= open('fichier_to_get.txt','w')	
+			localefile.write(score_recupere.export_rows())
+			#Don't forget to close the flux, else the command put will not work
+			lcoafile.close()	
+			put("fichier_to_get.txt", file_type='txt')
 
-		localefile= open('fichier_to_get.txt','w')	
-		localefile.write(score_recupere.export_rows())
-		put("fichier_to_get.txt", file_type='txt')
 
 sys.exit(0)
 
