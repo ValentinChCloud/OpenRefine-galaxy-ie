@@ -8,7 +8,6 @@ cp /proxy.conf /etc/nginx/sites-enabled/default;
 
 #By default (and for security reasons) Refine only listens to TCP requests coming from localhost (127.0.0.1 on port 3333) . If you want to respond to TCP request coming to any Ip adress the machine has, #run refine like this from the command line :
 #./refine -i 0.0.0.0
-exec ../OpenRefine/refine -d /mnt/refine &
 
 #load dataset into openrefine
 /openrefine_import.sh &
@@ -18,6 +17,9 @@ do
 	echo "Importing data from galaxy history "
 	sleep 4
 done
+
+exec ../OpenRefine/refine -d /mnt/refine &
+
 #Check if openrefine is up to work
 STATUS=$(curl --include 'http://127.0.0.1:3333' 2>&1)
 while [[ ${STATUS} =~ "refused" ]]
