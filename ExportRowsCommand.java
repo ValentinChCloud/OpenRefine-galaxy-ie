@@ -33,6 +33,10 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	
 package com.google.refine.commands.project;
 
+
+
+
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -85,7 +89,7 @@ int exitstatus;
 	System.out.println("Saving a file");
 	System.out.println("Calling python script");
 	//Runtime.getRuntime().exec("python /home/mnhn65mo/OpenRefine/refine-python/openrefine_export.py");
-	Process p = Runtime.getRuntime().exec("python /OpenRefine/refine-python/openrefine_export.py");
+	Process p = Runtime.getRuntime().exec("python /refine-python/openrefine_export_project.py");
 	p.waitFor();
 	exitstatus = p.exitValue();
 	System.out.println(p.exitValue());

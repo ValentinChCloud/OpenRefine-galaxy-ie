@@ -9,7 +9,7 @@ sys.path.append("refine.py")
 import refine
 r = refine.Refine()
 
-cwd = os.getcwd()
+
 if os.path.isfile("fichier_donnee.txt"):
 	print "sortie erreur"
 	os.remove("fichier_donnee.txt")
@@ -22,19 +22,19 @@ else:
 	print('Le fichier a bien ete crer  pas vrai?: ')
 	print(os.path.isfile('fichier_donnee.txt'))
 	try:
-		os.mkdir(cwd+'/temp_dossier')
+		os.mkdir('/refine-python/temp_dossier')
 
 	except OSError:
 		pass
 
 	finally:
-		with open (cwd+'/temp_dossier/project_openrefine','rb') as fichier :
+		with open ('/refine-python/temp_dossier/project_openrefine','rb') as fichier :
 			mon_depickler = pickle.Unpickler(fichier)
 			score_recupere = mon_depickler.load()
 			localefile= open('fichier_to_get.txt','w')	
 			localefile.write(score_recupere.export_rows())
 			#Don't forget to close the flux, else the command put will not work
-			lcoafile.close()	
+			localefile.close()	
 			put("fichier_to_get.txt", file_type='txt')
 
 
