@@ -14,7 +14,7 @@ image = openrefine
 # URL to access the Galaxy API with from the spawn Docker container, if empty
 # this falls back to galaxy.ini's galaxy_infrastructure_url and finally to the
 # Docker host of the spawned container if that is also not set.
-#galaxy_url =
+galaxy_url = :8080
 
 # The Docker hostname. It can be useful to run the Docker daemon on a different
 # host than Galaxy.
