@@ -39,7 +39,6 @@ RUN pip install bioblend galaxy-ie-helpers
 #Vim to modify ass porky
 RUN apt-get install -y vim
 
-#PERSONAL NOTE: You have have to install ullib before openrefine to avoid proxy port problem.
 #Get urllib
 RUN wget -O - --no-check-certificate https://github.com/ValentinChCloud/urllib2_file/archive/master.tar.gz | tar -xz
 RUN mv urllib2_file-master urllib2_file; cd ./urllib2_file ; python setup.py test 
@@ -48,17 +47,21 @@ RUN cd ./urllib2_file ; python setup.py build ; python setup.py install ;
 	
 
 
-# download and "mount" OpenRefine
+# Download and "mount" OpenRefine
 RUN wget -O - --no-check-certificate https://github.com/ValentinChCloud/OpenRefine/archive/master.tar.gz |tar -xz
 RUN mv OpenRefine-master OpenRefine
-RUN cd OpenRefine/ ;ls -al
 RUN apt-get install unzip
 
 RUN apt-get install -y curl
 
 # make some changes to Openrefine to export data to galaxy history
-ADD ./ExportRowsCommand.java /OpenRefine/main/src/com/google/refine/commands/project/ExportRowsCommand.java
+ADD ./ExportRowsCommand.java OpenRefine/main/src/com/google/refine/commands/project/ExportRowsCommand.java
 ADD ./exporters.js OpenRefine/main/webapp/modules/core/scripts/project/exporters.js
+ADD ./langs/translation-default.json OpenRefine/main/webapp/modules/core/langs/translation-default.json
+ADD ./langs/translation-fr.json OpenRefine/main/webapp/modules/core/langs/translation-fr.json
+ADD ./langs/translation-fr.json OpenRefine/main/webapp/modules/core/langs/translation-en.json
+
+
 RUN /OpenRefine/refine build
 
 

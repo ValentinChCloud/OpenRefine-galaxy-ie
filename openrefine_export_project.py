@@ -31,11 +31,12 @@ else:
 		with open ('/refine-python/temp_dossier/project_openrefine','rb') as fichier :
 			mon_depickler = pickle.Unpickler(fichier)
 			score_recupere = mon_depickler.load()
-			localefile= open('fichier_export_openrefine.tsv','w')	
+			name_file = score_recupere.project_name.split(".")[0] 
+			localefile= open('%s_refine' % name_file ,'w')
 			localefile.write(score_recupere.export_rows())
 			#Don't forget to close the flux, else the command put will not work
 			localefile.close()	
-			put("fichier_export_openrefine.tsv", file_type='tsv')
+			put('%s_refine' % name_file, file_type='tsv')
 
 
 sys.exit(0)
