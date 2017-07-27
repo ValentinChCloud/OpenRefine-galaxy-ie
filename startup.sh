@@ -8,7 +8,7 @@ cp /proxy.conf /etc/nginx/sites-enabled/default;
 
 
 #load dataset into openrefine
-#/openrefine_import.sh &
+
 files=(/import/*)
 until [[ -f "$files" ]]
 do
