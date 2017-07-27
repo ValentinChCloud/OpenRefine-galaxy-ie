@@ -81,7 +81,6 @@ ADD ./openrefine_create_project_API.py /refine-python/openrefine_create_project_
 ADD ./openrefine_export_project.py /refine-python/openrefine_export_project.py
 #DEPRECATED
 #Import and export
-ADD ./openrefine_import.sh /openrefine_import.sh
 
 
 
