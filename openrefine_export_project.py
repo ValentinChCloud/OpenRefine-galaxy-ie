@@ -19,7 +19,6 @@ else:
 	print ("Fichier_donne.txt n'existe pas :"+str(os.path.isfile('fichier_donnee.txt')))
 	localefile= open('fichier_donnee.txt','w')	
 	localefile.write('true')
-	print('Le fichier a bien ete crer  pas vrai?: ')
 	print(os.path.isfile('fichier_donnee.txt'))
 	try:
 		os.mkdir('/refine-python/temp_dossier')
