@@ -79,8 +79,6 @@ ADD ./monitor_traffic.sh /monitor_traffic.sh
 # Create and export project
 ADD ./openrefine_create_project_API.py /refine-python/openrefine_create_project_API.py
 ADD ./openrefine_export_project.py /refine-python/openrefine_export_project.py
-#DEPRECATED
-#Import and export
 
 
 
