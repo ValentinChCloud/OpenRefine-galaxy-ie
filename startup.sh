@@ -16,7 +16,7 @@ do
 	sleep 4
 done
 
-../OpenRefine/refine  -i 0.0.0.0
+exec /OpenRefine/refine -m $REFINE_MEMORY &
 
 #Check if openrefine is up to work
 STATUS=$(curl --include 'http://127.0.0.1:3333' 2>&1)
@@ -32,6 +32,6 @@ python openrefine_create_project_API.py "/import/$DATASET_NAME" &
 
 # Launch traffic monitor which will automatically kill the container if traffic
 # stops
-/monitor_traffic.sh &
+exec /monitor_traffic.sh &
 #And nginx in foreground mode.
 nginx -g 'daemon off;'
