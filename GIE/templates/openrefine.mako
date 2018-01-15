@@ -17,7 +17,8 @@ else:
 ie_request.launch(
 additional_ids=additional_ids if ie_request.use_volumes else None,
     env_override={
-        'dataset_hid': hda.hid
+        'dataset_hid': hda.hid,
+        'dataset_name': hda.name
     }
 )
 
