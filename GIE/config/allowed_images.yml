@@ -6,7 +6,7 @@
 # appropriate `apt-get/pip install` statements.
 ---
 -
-    image: valentinchdock/openrefine-galaxy-ie:17.05
+    image: valentinchdock/openrefine-galaxy-ie:17.09
     description: |
         Openrefine  is a web spreadsheet.
 
