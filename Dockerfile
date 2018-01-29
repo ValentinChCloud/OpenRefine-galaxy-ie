@@ -1,4 +1,4 @@
-FROM ubuntu:16.10
+FROM ubuntu:latest
 
 MAINTAINER Valentin Chambon "valentin.chambon@mnhn.fr"
 
@@ -19,8 +19,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     HISTORY_ID=none \
     REMOTE_HOST=none
 	
-RUN apt-get update &&\
-    apt-get install -y wget
+RUN apt-get update 
 
 
 RUN apt-get install --no-install-recommends -y \
